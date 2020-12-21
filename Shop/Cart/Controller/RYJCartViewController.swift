@@ -21,12 +21,35 @@ class RYJCartViewController: RYJBaseViewController {
     
     lazy var listView: RYJCartListView = {
         let listView = RYJCartListView.init(frame: CGRect.zero)
+        listView.productData = productData
         return listView
+    }()
+    
+    lazy var productData: Array<RYJCartModel> = {
+        let data = RYJCartModel.defaultData()
+        return data
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        setupUI()
+        // 计算总价
+        calculateTotalPrice()
+        // 删除产品的回调
+        listView.editingDeleteBlock = {
+            self.deleteProduct(indexPath: $0)
+        }
+    }
+
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        // 列表左滑删除
+        listView.addDeleteButton()
+    }
+    
+    
+    func setupUI() {
         self.titleLabel.text = "Cart"
         
         self.view.addSubview(discountView)
@@ -50,10 +73,20 @@ class RYJCartViewController: RYJBaseViewController {
             $0.bottom.equalTo(settlementView.snp.top)
         }
     }
-
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        listView.addDeleteButton()
+    
+    func deleteProduct(indexPath: IndexPath) {
+        self.productData.remove(at: indexPath.row)
+        self.listView.productData = self.productData
+        self.listView.tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.automatic)
+        // 从新计算价格
+        calculateTotalPrice()
     }
     
+    func calculateTotalPrice() {
+        var totalPrice = 0.0
+        for model in self.productData {
+            totalPrice += Double(model.pdPrice!)!
+        }
+        settlementView.settlementButton.setTitle("$ \(totalPrice)", for: UIControl.State.normal)
+    }
 }

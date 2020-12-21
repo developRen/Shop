@@ -9,7 +9,7 @@ import UIKit
 
 class RYJCartListView: UIView {
     
-    private lazy var tableView: UITableView = {
+    lazy var tableView: UITableView = {
         let tableView = UITableView.init(frame: CGRect.zero)
         tableView.delegate = self
         tableView.dataSource = self
@@ -20,10 +20,10 @@ class RYJCartListView: UIView {
         return tableView
     }()
     
-    lazy var productData: Array<RYJCartModel> = {
-        let data = RYJCartModel.defaultData()
-        return data
-    }()
+    var productData: Array<RYJCartModel> = Array.init()
+    
+    typealias deleteBlock = (_ indexPath: IndexPath) ->()
+    var editingDeleteBlock: deleteBlock!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -77,8 +77,11 @@ extension RYJCartListView: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == UITableViewCell.EditingStyle.delete {
-            productData.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.automatic)
+            if let _ = editingDeleteBlock {
+                editingDeleteBlock(indexPath)
+            }
+//            productData.remove(at: indexPath.row)
+//            tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.automatic)
         }
     }
     

@@ -37,7 +37,7 @@ class RYJCartSettlementView: UIView {
         button.frame = CGRect.zero
         button.layer.cornerRadius = 4
         button.layer.masksToBounds = true
-        button.setTitle("$ 250", for: UIControl.State.normal)
+        button.setTitle("$ 0", for: UIControl.State.normal)
         button.setTitleColor(UIColor.white, for: UIControl.State.normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 20)
         button.addTarget(self, action: #selector(settlementButtonClick), for: UIControl.Event.touchUpInside)
