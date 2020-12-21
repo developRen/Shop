@@ -21,6 +21,7 @@
 		0589F4DA258746AD005F9EF6 /* RYJHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0589F4D9258746AD005F9EF6 /* RYJHomeViewController.swift */; };
 		058E1B7D25902E4C00E678FD /* RYJCartListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058E1B7C25902E4C00E678FD /* RYJCartListView.swift */; };
 		058E1B8B2590416400E678FD /* RYJCartModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058E1B8A2590416400E678FD /* RYJCartModel.swift */; };
+		058E1B972590800500E678FD /* RYJRefresh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058E1B962590800500E678FD /* RYJRefresh.swift */; };
 		059934FE258899A200302D5F /* RYJLikeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059934FD258899A200302D5F /* RYJLikeViewController.swift */; };
 		05993506258899B300302D5F /* RYJCartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05993505258899B300302D5F /* RYJCartViewController.swift */; };
 		0599350B258899CD00302D5F /* RYJSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0599350A258899CD00302D5F /* RYJSearchViewController.swift */; };
@@ -69,6 +70,7 @@
 		0589F4D9258746AD005F9EF6 /* RYJHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RYJHomeViewController.swift; sourceTree = "<group>"; };
 		058E1B7C25902E4C00E678FD /* RYJCartListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RYJCartListView.swift; sourceTree = "<group>"; };
 		058E1B8A2590416400E678FD /* RYJCartModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RYJCartModel.swift; sourceTree = "<group>"; };
+		058E1B962590800500E678FD /* RYJRefresh.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RYJRefresh.swift; sourceTree = "<group>"; };
 		059934FD258899A200302D5F /* RYJLikeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RYJLikeViewController.swift; sourceTree = "<group>"; };
 		05993505258899B300302D5F /* RYJCartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RYJCartViewController.swift; sourceTree = "<group>"; };
 		0599350A258899CD00302D5F /* RYJSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RYJSearchViewController.swift; sourceTree = "<group>"; };
@@ -172,6 +174,7 @@
 		0589F4D825874647005F9EF6 /* System */ = {
 			isa = PBXGroup;
 			children = (
+				058E1B9525907FDF00E678FD /* Refresh */,
 				0589F492258733A6005F9EF6 /* AppDelegate.swift */,
 				0589F4D225874562005F9EF6 /* RYJTabBarController.swift */,
 				0599353325889D7500302D5F /* RYJBaseViewController.swift */,
@@ -216,6 +219,14 @@
 				05993505258899B300302D5F /* RYJCartViewController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		058E1B9525907FDF00E678FD /* Refresh */ = {
+			isa = PBXGroup;
+			children = (
+				058E1B962590800500E678FD /* RYJRefresh.swift */,
+			);
+			path = Refresh;
 			sourceTree = "<group>";
 		};
 		059934FA2588991A00302D5F /* Like */ = {
@@ -458,6 +469,7 @@
 				05B33E6E2588A881002DE0E0 /* UIColorExtension.swift in Sources */,
 				0599353425889D7500302D5F /* RYJBaseViewController.swift in Sources */,
 				0589F4DA258746AD005F9EF6 /* RYJHomeViewController.swift in Sources */,
+				058E1B972590800500E678FD /* RYJRefresh.swift in Sources */,
 				058E1B8B2590416400E678FD /* RYJCartModel.swift in Sources */,
 				05B33E792588B1A4002DE0E0 /* Global.swift in Sources */,
 				059934FE258899A200302D5F /* RYJLikeViewController.swift in Sources */,

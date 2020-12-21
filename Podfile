@@ -6,5 +6,6 @@ inhibit_all_warnings!
 target 'Shop' do
 
 pod 'SnapKit'
+pod 'MJRefresh'
 
 end

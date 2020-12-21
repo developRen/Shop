@@ -22,6 +22,9 @@ class RYJCartViewController: RYJBaseViewController {
     lazy var listView: RYJCartListView = {
         let listView = RYJCartListView.init(frame: CGRect.zero)
         listView.productData = productData
+        listView.tableView.ryjHead = RYJRefreshNormalHeader {
+            [weak self] in self?.loadData()
+        }
         return listView
     }()
     
@@ -38,7 +41,7 @@ class RYJCartViewController: RYJBaseViewController {
         calculateTotalPrice()
         // 删除产品的回调
         listView.editingDeleteBlock = {
-            self.deleteProduct(indexPath: $0)
+            [weak self] in self?.deleteProduct(indexPath: $0)
         }
     }
 
@@ -88,5 +91,13 @@ class RYJCartViewController: RYJBaseViewController {
             totalPrice += Double(model.pdPrice!)!
         }
         settlementView.settlementButton.setTitle("$ \(totalPrice)", for: UIControl.State.normal)
+    }
+    
+    func loadData() {
+        self.productData = RYJCartModel.defaultData()
+        self.listView.productData = self.productData
+        self.listView.tableView.reloadData()
+        calculateTotalPrice()
+        self.listView.tableView.ryjHead.endRefreshing()
     }
 }
