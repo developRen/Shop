@@ -109,25 +109,25 @@ class RYJSearchRecentCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        self.addSubview(titleLabel)
+        self.contentView.addSubview(titleLabel)
         titleLabel.snp.makeConstraints {
             $0.left.equalTo(self.snp.left).offset(20)
             $0.top.bottom.equalTo(self)
         }
         
-        self.addSubview(brandLabel)
+        self.contentView.addSubview(brandLabel)
         brandLabel.snp.makeConstraints {
             $0.left.equalTo(self.snp.left).offset(20)
             $0.top.bottom.equalTo(self)
         }
         
-        self.addSubview(productLabel)
+        self.contentView.addSubview(productLabel)
         productLabel.snp.makeConstraints {
             $0.left.equalTo(self.brandLabel.snp.right).offset(18)
             $0.top.bottom.equalTo(self)
         }
         
-        self.addSubview(line)
+        self.contentView.addSubview(line)
         line.snp.makeConstraints {
             $0.left.equalTo(self.snp.left).offset(20)
             $0.bottom.equalTo(self)
@@ -135,7 +135,7 @@ class RYJSearchRecentCell: UITableViewCell {
             $0.width.equalTo(screenWidth - 20)
         }
         
-        self.addSubview(arrowImageView)
+        self.contentView.addSubview(arrowImageView)
         arrowImageView.snp.makeConstraints {
             $0.left.equalTo(self.snp.left).offset(screenWidth - 30)
             $0.centerY.equalTo(self.snp.centerY)

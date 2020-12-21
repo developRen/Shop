@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		052B7FD0258C9B16003AF68B /* RYJCartDiscountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052B7FCF258C9B16003AF68B /* RYJCartDiscountView.swift */; };
+		052B7FD5258CA7F7003AF68B /* RYJCartSettlementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052B7FD4258CA7F7003AF68B /* RYJCartSettlementView.swift */; };
 		053D63E3258AEA9D009567D4 /* RYJSearchRecentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053D63E2258AEA9D009567D4 /* RYJSearchRecentView.swift */; };
 		0589F493258733A6005F9EF6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0589F492258733A6005F9EF6 /* AppDelegate.swift */; };
 		0589F497258733A6005F9EF6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0589F496258733A6005F9EF6 /* ViewController.swift */; };
@@ -17,6 +19,8 @@
 		0589F4B5258733AA005F9EF6 /* ShopUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0589F4B4258733AA005F9EF6 /* ShopUITests.swift */; };
 		0589F4D325874562005F9EF6 /* RYJTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0589F4D225874562005F9EF6 /* RYJTabBarController.swift */; };
 		0589F4DA258746AD005F9EF6 /* RYJHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0589F4D9258746AD005F9EF6 /* RYJHomeViewController.swift */; };
+		058E1B7D25902E4C00E678FD /* RYJCartListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058E1B7C25902E4C00E678FD /* RYJCartListView.swift */; };
+		058E1B8B2590416400E678FD /* RYJCartModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058E1B8A2590416400E678FD /* RYJCartModel.swift */; };
 		059934FE258899A200302D5F /* RYJLikeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059934FD258899A200302D5F /* RYJLikeViewController.swift */; };
 		05993506258899B300302D5F /* RYJCartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05993505258899B300302D5F /* RYJCartViewController.swift */; };
 		0599350B258899CD00302D5F /* RYJSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0599350A258899CD00302D5F /* RYJSearchViewController.swift */; };
@@ -45,6 +49,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		052B7FCF258C9B16003AF68B /* RYJCartDiscountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RYJCartDiscountView.swift; sourceTree = "<group>"; };
+		052B7FD4258CA7F7003AF68B /* RYJCartSettlementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RYJCartSettlementView.swift; sourceTree = "<group>"; };
 		053D63E2258AEA9D009567D4 /* RYJSearchRecentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RYJSearchRecentView.swift; sourceTree = "<group>"; };
 		0589F48F258733A6005F9EF6 /* Shop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0589F492258733A6005F9EF6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -61,6 +67,8 @@
 		0589F4B6258733AA005F9EF6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0589F4D225874562005F9EF6 /* RYJTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RYJTabBarController.swift; sourceTree = "<group>"; };
 		0589F4D9258746AD005F9EF6 /* RYJHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RYJHomeViewController.swift; sourceTree = "<group>"; };
+		058E1B7C25902E4C00E678FD /* RYJCartListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RYJCartListView.swift; sourceTree = "<group>"; };
+		058E1B8A2590416400E678FD /* RYJCartModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RYJCartModel.swift; sourceTree = "<group>"; };
 		059934FD258899A200302D5F /* RYJLikeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RYJLikeViewController.swift; sourceTree = "<group>"; };
 		05993505258899B300302D5F /* RYJCartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RYJCartViewController.swift; sourceTree = "<group>"; };
 		0599350A258899CD00302D5F /* RYJSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RYJSearchViewController.swift; sourceTree = "<group>"; };
@@ -184,6 +192,32 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		058E1B8425903E8A00E678FD /* View */ = {
+			isa = PBXGroup;
+			children = (
+				052B7FCF258C9B16003AF68B /* RYJCartDiscountView.swift */,
+				052B7FD4258CA7F7003AF68B /* RYJCartSettlementView.swift */,
+				058E1B7C25902E4C00E678FD /* RYJCartListView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		058E1B8525903E9300E678FD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				058E1B8A2590416400E678FD /* RYJCartModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		058E1B8625903EA300E678FD /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				05993505258899B300302D5F /* RYJCartViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		059934FA2588991A00302D5F /* Like */ = {
 			isa = PBXGroup;
 			children = (
@@ -195,7 +229,9 @@
 		059934FB2588994C00302D5F /* Cart */ = {
 			isa = PBXGroup;
 			children = (
-				05993505258899B300302D5F /* RYJCartViewController.swift */,
+				058E1B8625903EA300E678FD /* Controller */,
+				058E1B8525903E9300E678FD /* Model */,
+				058E1B8425903E8A00E678FD /* View */,
 			);
 			path = Cart;
 			sourceTree = "<group>";
@@ -412,13 +448,17 @@
 				0599350B258899CD00302D5F /* RYJSearchViewController.swift in Sources */,
 				05993506258899B300302D5F /* RYJCartViewController.swift in Sources */,
 				05B33E832588BA45002DE0E0 /* RYJSearchRankingView.swift in Sources */,
+				052B7FD0258C9B16003AF68B /* RYJCartDiscountView.swift in Sources */,
+				058E1B7D25902E4C00E678FD /* RYJCartListView.swift in Sources */,
 				053D63E3258AEA9D009567D4 /* RYJSearchRecentView.swift in Sources */,
 				0589F4D325874562005F9EF6 /* RYJTabBarController.swift in Sources */,
 				0589F497258733A6005F9EF6 /* ViewController.swift in Sources */,
+				052B7FD5258CA7F7003AF68B /* RYJCartSettlementView.swift in Sources */,
 				0589F493258733A6005F9EF6 /* AppDelegate.swift in Sources */,
 				05B33E6E2588A881002DE0E0 /* UIColorExtension.swift in Sources */,
 				0599353425889D7500302D5F /* RYJBaseViewController.swift in Sources */,
 				0589F4DA258746AD005F9EF6 /* RYJHomeViewController.swift in Sources */,
+				058E1B8B2590416400E678FD /* RYJCartModel.swift in Sources */,
 				05B33E792588B1A4002DE0E0 /* Global.swift in Sources */,
 				059934FE258899A200302D5F /* RYJLikeViewController.swift in Sources */,
 			);

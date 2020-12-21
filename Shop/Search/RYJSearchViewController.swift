@@ -9,46 +9,14 @@ import UIKit
 
 class RYJSearchViewController: RYJBaseViewController {
 
-    private lazy var scrollView: UIScrollView = {
-        let scrollView = UIScrollView.init(frame: CGRect.zero)
-        scrollView.showsVerticalScrollIndicator = false
-        scrollView.showsHorizontalScrollIndicator = false
-        scrollView.contentSize = CGSize.init(width: screenWidth, height: 570)
-        return scrollView
-    }()
-    
-    lazy var searchTextField: UITextField = {
-        let textField = UITextField.init()
-        textField.placeholder = "  What are you looking for?"
-        textField.font = UIFont.systemFont(ofSize: 13)
-        textField.layer.cornerRadius = 4
-        textField.layer.masksToBounds = true
-        textField.backgroundColor = UIColor.hex(hexString: "0xF4F4F4")
-        return textField
-    }()
-    
-    lazy var rankingView: RYJSearchRankingView = {
-        let rankingView = RYJSearchRankingView.init(frame: CGRect.zero)
-        return rankingView
-    }()
-    
-    lazy var recentView: RYJSearchRecentView = {
-        let recentView = RYJSearchRecentView.init(frame: CGRect.zero)
-        return recentView
-    }()
-    
-    lazy var bottomImageView: UIImageView = {
-        let imageView = UIImageView.init(image: UIImage.init(named: "search_ad"))
-        imageView.layer.cornerRadius = 4
-        imageView.layer.masksToBounds = true
-        return imageView
-    }()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.titleLabel.text = "Search"
-
+        setupUI()
+    }
+    
+    func setupUI() {
         self.view.addSubview(scrollView)
         scrollView.snp.makeConstraints {
             $0.top.equalTo(self.titleLine.snp.bottom)
@@ -87,8 +55,43 @@ class RYJSearchViewController: RYJBaseViewController {
             $0.height.equalTo(120)
         }
     }
-
+    
+    private lazy var scrollView: UIScrollView = {
+        let scrollView = UIScrollView.init(frame: CGRect.zero)
+        scrollView.showsVerticalScrollIndicator = false
+        scrollView.showsHorizontalScrollIndicator = false
+        scrollView.contentSize = CGSize.init(width: screenWidth, height: 570)
+        return scrollView
+    }()
+    
+    lazy var searchTextField: UITextField = {
+        let textField = UITextField.init()
+        textField.placeholder = "  What are you looking for?"
+        textField.font = UIFont.systemFont(ofSize: 13)
+        textField.layer.cornerRadius = 4
+        textField.layer.masksToBounds = true
+        textField.backgroundColor = UIColor.hex(hexString: "0xF4F4F4")
+        return textField
+    }()
+    
+    lazy var rankingView: RYJSearchRankingView = {
+        let rankingView = RYJSearchRankingView.init(frame: CGRect.zero)
+        return rankingView
+    }()
+    
+    lazy var recentView: RYJSearchRecentView = {
+        let recentView = RYJSearchRecentView.init(frame: CGRect.zero)
+        return recentView
+    }()
+    
+    lazy var bottomImageView: UIImageView = {
+        let imageView = UIImageView.init(image: UIImage.init(named: "search_ad"))
+        imageView.layer.cornerRadius = 4
+        imageView.layer.masksToBounds = true
+        return imageView
+    }()
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        searchTextField.endEditing(false)
+        searchTextField.resignFirstResponder()
     }
 }
