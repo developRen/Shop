@@ -120,25 +120,25 @@ class RYJHomeLikeItemCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        self.addSubview(imageView)
+        self.contentView.addSubview(imageView)
         imageView.snp.makeConstraints {
             $0.left.top.right.equalTo(self)
             $0.height.equalTo(160)
         }
         
-        self.addSubview(nameLabel)
+        self.contentView.addSubview(nameLabel)
         nameLabel.snp.makeConstraints {
             $0.left.equalTo(imageView.snp.left)
             $0.top.equalTo(imageView.snp.bottom).offset(20)
         }
         
-        self.addSubview(brandLabel)
+        self.contentView.addSubview(brandLabel)
         brandLabel.snp.makeConstraints {
             $0.left.equalTo(imageView.snp.left)
             $0.top.equalTo(nameLabel.snp.bottom).offset(2)
         }
         
-        self.addSubview(likeButton)
+        self.contentView.addSubview(likeButton)
         likeButton.addTarget(self, action: #selector(likeButtonClick), for: .touchUpInside)
 
     }

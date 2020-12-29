@@ -26,6 +26,15 @@ class RYJHomeBannerView: UIView {
         return collectView
     }()
     
+    lazy var pageControl: UIPageControl = {
+        let pageControl = UIPageControl.init(frame: CGRect.zero)
+        pageControl.numberOfPages = 3
+        pageControl.currentPage = 0
+        pageControl.currentPageIndicatorTintColor = UIColor.hex(hexString: "0x2F69F8")
+        pageControl.pageIndicatorTintColor = UIColor.hex(hexString: "0xE0E0E0")
+        return pageControl
+    }()
+    
     // 定时器
     var timer: Timer?
     // 当前选中下标
@@ -43,11 +52,15 @@ class RYJHomeBannerView: UIView {
         collectionView.scrollToItem(at: index, at: .centeredHorizontally, animated: false)
         currentIndex = 51
         
-        if self.timer == nil {
-            self.timer = Timer.scheduledTimer(withTimeInterval: 3.0, repeats: true, block: {[weak self] (timer) in
-                self?.nextCell()
-            })
+        self.addSubview(pageControl)
+        pageControl.snp.makeConstraints {
+            $0.centerX.equalTo(self.collectionView.snp.centerX)
+            $0.height.equalTo(10)
+            $0.width.equalTo(200)
+            $0.bottom.equalTo(self.snp.bottom).offset(-13.5)
         }
+        
+        play()
     }
     
     // 添加背景渐变
@@ -75,8 +88,11 @@ class RYJHomeBannerView: UIView {
     
     // 滚动到下一个
     @objc fileprivate func nextCell() {
-        let index: IndexPath = IndexPath.init(row: currentIndex + 1, section: 0)
+        currentIndex += 1
+        let index: IndexPath = IndexPath.init(row: currentIndex, section: 0)
         collectionView.scrollToItem(at: index, at: .centeredHorizontally, animated: true)
+        
+        resetPage()
     }
     
     // 继续滚动轮播图
@@ -129,6 +145,11 @@ class RYJHomeBannerView: UIView {
         }
     }
     
+    func resetPage() {
+        let page = currentIndex % 3
+        pageControl.currentPage = page
+    }
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -157,6 +178,8 @@ extension RYJHomeBannerView: UIScrollViewDelegate {
                 self.scrollViewWillBeginDecelerating(self.collectionView);
             }
         }
+        
+        resetPage()
     }
     
     // 将要开始减速
@@ -192,7 +215,7 @@ extension RYJHomeBannerView: UIScrollViewDelegate {
 }
 
 extension RYJHomeBannerView: UICollectionViewDelegate {
-
+    // 点击Banner
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
     }
@@ -207,25 +230,121 @@ extension RYJHomeBannerView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cellString = "RYJHomeBannerCell"
         let cell: RYJHomeBannerCell = collectionView.dequeueReusableCell(withReuseIdentifier: cellString, for: indexPath) as! RYJHomeBannerCell
-        if indexPath.row % 3 == 0 {
-            cell.backgroundColor = UIColor.green
-        } else if indexPath.row % 3 == 1 {
-            cell.backgroundColor = UIColor.yellow
-        } else {
-            cell.backgroundColor = UIColor.red
-        }
         return cell
     }
     
 }
 
 class RYJHomeBannerCell: UICollectionViewCell {
+    
     lazy var imageView: UIImageView = {
-        let imageView = UIImageView.init(frame: CGRect.zero)
+        let imageView = UIImageView.init(image: UIImage.init(named: "home_banner"))
+        imageView.layer.cornerRadius = 10
+        imageView.layer.masksToBounds = true
         return imageView
     }()
+    
+    lazy var buyButton: UIButton = {
+        let button = UIButton.init(type: UIButton.ButtonType.custom)
+        button.layer.cornerRadius = 25
+        button.layer.masksToBounds = true
+        button.setImage(UIImage.init(named: "home_cart"), for: UIControl.State.normal)
+        return button
+    }()
+    
+    lazy var typeLabel: UILabel = {
+        let label = UILabel.init(frame: CGRect.zero)
+        label.backgroundColor = UIColor.hex(hexString: "0x7750EA")
+        label.text = "NEW"
+        label.textColor = UIColor.white
+        label.textAlignment = NSTextAlignment.center
+        label.layer.cornerRadius = 2
+        label.font = UIFont.systemFont(ofSize: 8)
+        label.layer.masksToBounds = true
+        return label
+    }()
+    
+    lazy var nameLabel: UILabel = {
+        let label = UILabel.init(frame: CGRect.zero)
+        label.text = "Twerk it"
+        label.textColor = UIColor.black
+        label.font = UIFont.systemFont(ofSize: 20)
+        return label
+    }()
+    
+    lazy var introduceLabel: UILabel = {
+        let label = UILabel.init(frame: CGRect.zero)
+        label.text = "Long 3/4 sleevs, sweartshirt"
+        label.textColor = UIColor.hex(hexString: "0x6A6A6A")
+        label.font = UIFont.systemFont(ofSize: 12)
+        return label
+    }()
+    
+    lazy var priceLabel: UILabel = {
+        let label = UILabel.init(frame: CGRect.zero)
+        label.text = "¥ 200"
+        label.textColor = UIColor.black
+        label.font = UIFont.systemFont(ofSize: 20)
+        return label
+    }()
+    
+    lazy var VATLabel: UILabel = {
+        let label = UILabel.init(frame: CGRect.zero)
+        label.text = "VAT included"
+        label.textColor = UIColor.hex(hexString: "0x6A6A6A")
+        label.font = UIFont.systemFont(ofSize: 12)
+        return label
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
+        self.contentView.addSubview(imageView)
+        imageView.snp.makeConstraints {
+            $0.left.equalTo(self.snp.left).offset(20)
+            $0.top.equalTo(self.snp.top).offset(20)
+            $0.right.equalTo(self.snp.right).offset(-20)
+            $0.height.equalTo(206)
+        }
+        
+        self.contentView.addSubview(buyButton)
+        buyButton.snp.makeConstraints {
+            $0.centerY.equalTo(imageView.snp.bottom)
+            $0.right.equalTo(imageView.snp.right).offset(-20)
+            $0.width.height.equalTo(50)
+        }
+        
+        self.contentView.addSubview(typeLabel)
+        typeLabel.snp.makeConstraints {
+            $0.left.equalTo(imageView.snp.left)
+            $0.top.equalTo(imageView.snp.bottom).offset(20)
+            $0.width.equalTo(24)
+            $0.height.equalTo(12)
+        }
+        
+        self.contentView.addSubview(nameLabel)
+        nameLabel.snp.makeConstraints {
+            $0.left.equalTo(imageView.snp.left)
+            $0.top.equalTo(imageView.snp.bottom).offset(46)
+        }
+        
+        self.contentView.addSubview(introduceLabel)
+        introduceLabel.snp.makeConstraints {
+            $0.left.equalTo(imageView.snp.left)
+            $0.top.equalTo(imageView.snp.bottom).offset(73)
+        }
+        
+        self.contentView.addSubview(priceLabel)
+        priceLabel.snp.makeConstraints {
+            $0.right.equalTo(self.snp.left).offset(screenWidth - 20)
+            $0.centerY.equalTo(nameLabel.snp.centerY)
+        }
+        
+        self.contentView.addSubview(VATLabel)
+        VATLabel.snp.makeConstraints {
+            $0.right.equalTo(self.snp.left).offset(screenWidth - 20)
+            $0.centerY.equalTo(introduceLabel.snp.centerY)
+        }
         
     }
 
