@@ -42,6 +42,9 @@ class RYJHomeBannerView: UIView {
     // 自动滚动时间间隔,默认3s
     var timeInterval: TimeInterval = 3.0
 
+    typealias selectBlock = (_ indexPath: IndexPath) ->()
+    var didSelectBlock: selectBlock!
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -217,7 +220,9 @@ extension RYJHomeBannerView: UIScrollViewDelegate {
 extension RYJHomeBannerView: UICollectionViewDelegate {
     // 点击Banner
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+        if let _ = didSelectBlock {
+            didSelectBlock(indexPath)
+        }
     }
 }
 

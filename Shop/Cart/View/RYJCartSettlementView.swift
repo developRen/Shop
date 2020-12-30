@@ -44,6 +44,9 @@ class RYJCartSettlementView: UIView {
         return button
     }()
     
+    typealias settlementBlock = () ->()
+    var settlementClickBlock: settlementBlock!
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -76,7 +79,9 @@ class RYJCartSettlementView: UIView {
     }
     
     @objc func settlementButtonClick() {
-        print("hello")
+        if let _ = settlementClickBlock {
+            self.settlementClickBlock()
+        }
     }
     
     required init?(coder: NSCoder) {

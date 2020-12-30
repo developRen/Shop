@@ -63,6 +63,12 @@ class RYJCartViewController: RYJBaseViewController {
             $0.height.equalTo(80)
         }
         
+        settlementView.settlementClickBlock = {
+            [weak self] in
+            let detailVC = RYJCheckoutViewController.init()
+            detailVC.modalPresentationStyle = .fullScreen
+            self?.present(detailVC, animated: true, completion: {})
+        }
         self.view.addSubview(settlementView)
         settlementView.snp.makeConstraints {
             $0.left.right.bottom.equalTo(self.view)

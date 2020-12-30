@@ -24,6 +24,13 @@ class RYJHomeViewController: RYJBaseViewController {
         
         self.titleLabel.text = "New Collection"
         
+        bannerView.didSelectBlock = {
+            [weak self] in
+            _ = $0.row
+            let detailVC = RYJDetailViewController.init()
+            detailVC.modalPresentationStyle = .fullScreen
+            self?.present(detailVC, animated: true, completion: {})
+        }
         self.view.addSubview(bannerView)
         self.view.sendSubviewToBack(bannerView)
         bannerView.snp.makeConstraints {
