@@ -88,7 +88,7 @@ class RYJCartSettlementView: UIView {
         self.addSubview(priceLabel)
         priceLabel.snp.makeConstraints {
             $0.centerY.equalTo(titleLabel.snp.centerY)
-            $0.left.equalTo(self.snp.left).offset(10 0)
+            $0.left.equalTo(self.snp.left).offset(100)
         }
     }
     
