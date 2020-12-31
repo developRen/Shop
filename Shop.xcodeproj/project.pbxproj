@@ -38,6 +38,7 @@
 		05EC75C0259C2C1E00EF86E5 /* RYJDetailDescribeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05EC75BF259C2C1E00EF86E5 /* RYJDetailDescribeView.swift */; };
 		05EC762E259C6E3800EF86E5 /* RYJCheckoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05EC762D259C6E3800EF86E5 /* RYJCheckoutViewController.swift */; };
 		05EC7633259C71F900EF86E5 /* RYJCheckoutProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05EC7632259C71F900EF86E5 /* RYJCheckoutProgressView.swift */; };
+		05EC7638259C7EBD00EF86E5 /* RYJCheckoutShipmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05EC7637259C7EBD00EF86E5 /* RYJCheckoutShipmentView.swift */; };
 		F1104AE21A413B89C1431297 /* Pods_Shop.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62232979554C1DE5EBCFE44E /* Pods_Shop.framework */; };
 /* End PBXBuildFile section */
 
@@ -96,6 +97,7 @@
 		05EC75BF259C2C1E00EF86E5 /* RYJDetailDescribeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RYJDetailDescribeView.swift; sourceTree = "<group>"; };
 		05EC762D259C6E3800EF86E5 /* RYJCheckoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RYJCheckoutViewController.swift; sourceTree = "<group>"; };
 		05EC7632259C71F900EF86E5 /* RYJCheckoutProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RYJCheckoutProgressView.swift; sourceTree = "<group>"; };
+		05EC7637259C7EBD00EF86E5 /* RYJCheckoutShipmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RYJCheckoutShipmentView.swift; sourceTree = "<group>"; };
 		48AD86BB4D9D2C09269781E6 /* Pods-Shop.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shop.debug.xcconfig"; path = "Target Support Files/Pods-Shop/Pods-Shop.debug.xcconfig"; sourceTree = "<group>"; };
 		62232979554C1DE5EBCFE44E /* Pods_Shop.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Shop.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D578FECD44BDDA7737868D7F /* Pods-Shop.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shop.release.xcconfig"; path = "Target Support Files/Pods-Shop/Pods-Shop.release.xcconfig"; sourceTree = "<group>"; };
@@ -385,6 +387,7 @@
 			isa = PBXGroup;
 			children = (
 				05EC7632259C71F900EF86E5 /* RYJCheckoutProgressView.swift */,
+				05EC7637259C7EBD00EF86E5 /* RYJCheckoutShipmentView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -609,6 +612,7 @@
 				0589F497258733A6005F9EF6 /* ViewController.swift in Sources */,
 				052B7FD5258CA7F7003AF68B /* RYJCartSettlementView.swift in Sources */,
 				05EC7633259C71F900EF86E5 /* RYJCheckoutProgressView.swift in Sources */,
+				05EC7638259C7EBD00EF86E5 /* RYJCheckoutShipmentView.swift in Sources */,
 				0589F493258733A6005F9EF6 /* AppDelegate.swift in Sources */,
 				05B33E6E2588A881002DE0E0 /* UIColorExtension.swift in Sources */,
 				0599353425889D7500302D5F /* RYJBaseViewController.swift in Sources */,

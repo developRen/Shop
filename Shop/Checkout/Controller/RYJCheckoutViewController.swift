@@ -22,9 +22,16 @@ class RYJCheckoutViewController: RYJBaseViewController {
     
     lazy var nextView: RYJCartSettlementView = {
         let nextView = RYJCartSettlementView.init(frame: CGRect.zero)
+        nextView.priceLabel.isHidden = false
         nextView.settlementButton .setTitle("Next", for: UIControl.State.normal)
         return nextView
     }()
+    
+    lazy var shipmentView: RYJCheckoutShipmentView = {
+        let shipmentView = RYJCheckoutShipmentView.init(frame: CGRect.zero)
+        return shipmentView
+    }()
+    
     
     var index: Int = 0
     
@@ -46,6 +53,7 @@ class RYJCheckoutViewController: RYJBaseViewController {
         progressView.snp.makeConstraints {
             $0.left.right.equalTo(self.view)
             $0.top.equalTo(titleLine.snp.bottom)
+            $0.height.equalTo(80)
         }
         
         nextView.settlementClickBlock = { [weak self] in
@@ -61,11 +69,17 @@ class RYJCheckoutViewController: RYJBaseViewController {
             $0.bottom.equalTo(self.view.snp.bottom).offset(-44)
             $0.height.equalTo(60)
         }
+        
+        self.view.addSubview(shipmentView)
+        shipmentView.snp.makeConstraints {
+            $0.left.right.equalTo(self.view)
+            $0.top.equalTo(progressView.snp.bottom)
+            $0.bottom.equalTo(nextView.snp.top)
+        }
     }
 
     @objc func closeButtonClick(sender: UIButton) {
         self.dismiss(animated: true) {}
-
     }
     
 }

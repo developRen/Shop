@@ -44,6 +44,15 @@ class RYJCartSettlementView: UIView {
         return button
     }()
     
+    lazy var priceLabel: UILabel = {
+        let label = UILabel.init(frame: CGRect.zero)
+        label.text = "$ 430"
+        label.textColor = UIColor.hex(hexString: "0x2F69F8")
+        label.font = UIFont.systemFont(ofSize: 12)
+        label.isHidden = true
+        return label
+    }()
+    
     typealias settlementBlock = () ->()
     var settlementClickBlock: settlementBlock!
     
@@ -76,6 +85,11 @@ class RYJCartSettlementView: UIView {
             $0.height.equalTo(40)
         }
         
+        self.addSubview(priceLabel)
+        priceLabel.snp.makeConstraints {
+            $0.centerY.equalTo(titleLabel.snp.centerY)
+            $0.left.equalTo(self.snp.left).offset(10 0)
+        }
     }
     
     @objc func settlementButtonClick() {
