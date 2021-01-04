@@ -1,6 +1,6 @@
 # Shop
 
-业余时间独立开发的Swift项目
+业余时间独立开发的Swift电商项目
 
 已经更新适配Xcode12.2(Swift5)
 
