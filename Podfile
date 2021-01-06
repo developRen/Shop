@@ -7,5 +7,8 @@ target 'Shop' do
 
 pod 'SnapKit'
 pod 'MJRefresh'
+pod 'Moya'
+pod 'Alamofire'
+pod 'HandyJSON'
 
 end

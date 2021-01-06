@@ -33,6 +33,7 @@ class RYJBaseViewController: UIViewController {
         super.viewDidLoad()
         
         // 添加用户icon
+        iconButton.addTarget(self, action: #selector(iconButtonClick(sender:)), for: .touchUpInside)
         view.addSubview(iconButton)
         iconButton.snp.makeConstraints {
             $0.right.equalTo(self.view.snp.right).offset(-10)
@@ -55,5 +56,7 @@ class RYJBaseViewController: UIViewController {
             $0.bottom.equalTo(titleLine.snp.top).offset(-10)
         }
     }
+    
+    @objc func iconButtonClick(sender: UIButton) {}
     
 }
